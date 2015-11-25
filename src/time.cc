@@ -43,17 +43,17 @@ class Time {
     int tznameLength = 2;
     Local<Array> tznameArray = Nan::New<v8::Array>( tznameLength );
     for (int i=0; i < tznameLength; i++) {
-      Nan::Set(tznameArray, i, Nan::New<v8::String>(tzname[i]).ToLocalChecked());
+      //Nan::Set(tznameArray, i, Nan::New<v8::String>(tzname[i]).ToLocalChecked());
     }
 
     Nan::Set(obj, Nan::New("tzname").ToLocalChecked(), tznameArray);
 
     // The 'timezone' long is the "seconds West of UTC"
-    Nan::Set(obj, Nan::New("timezone").ToLocalChecked(), Nan::New<v8::Number>( timezone ));
+    //Nan::Set(obj, Nan::New("timezone").ToLocalChecked(), Nan::New<v8::Number>( timezone ));
 
     // The 'daylight' int is obselete actually, but I'll include it here for
     // curiosity's sake. See the "Notes" section of "man tzset"
-    Nan::Set(obj, Nan::New("daylight").ToLocalChecked(), Nan::New<v8::Number>( daylight ));
+    //Nan::Set(obj, Nan::New("daylight").ToLocalChecked(), Nan::New<v8::Number>( daylight ));
 
     info.GetReturnValue().Set(scope.Escape(obj));
   }
